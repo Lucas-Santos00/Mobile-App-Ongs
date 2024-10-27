@@ -1,9 +1,10 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
 
-export default function ItemOngList( {categoria, titulo, descricao} ){
+export default function ItemOngList( {categoria, titulo, descricao, pressFunction, arrayIndex} ){
 
     let iconItem;
+    const index = arrayIndex;
 
     if(categoria == 1){
          iconItem = require('@/assets/images/itemOngList/petsIcon.png')
@@ -15,7 +16,9 @@ export default function ItemOngList( {categoria, titulo, descricao} ){
 
     return(
 
-        <TouchableOpacity style={ styles.container }>
+        <TouchableOpacity 
+        onPress={(item) => pressFunction(index)}
+        style={ styles.container }>
 
             <Image source={iconItem} style={ styles.itemImg } />
 
