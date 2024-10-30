@@ -1,6 +1,6 @@
 import { View, Image, Text, StyleSheet, TouchableOpacity } from 'react-native';
 
-export default function Navbar() {
+export default function Navbar({ setVisibleForm }) {
 
     return(
 
@@ -10,7 +10,9 @@ export default function Navbar() {
 
             <Text style= { styles.teste } >Ajude ONGs, ajude pessoas!</Text>
 
-            <TouchableOpacity style={ styles.btn }>
+            <TouchableOpacity 
+            onPress={() => setVisibleForm(true)}
+            style={ styles.btn }>
                 <Text style={ styles.btnText } >Cadastrar ONG</Text>
             </TouchableOpacity>
 

@@ -6,6 +6,7 @@ import Navbar from "@/components/Navbar"
 import BtnFilter from "@/components/BtnFilter"
 import ItemOngList from "@/components/ItemOngList"
 import ModalOng  from "@/components/ModalOng"
+import ModalForm from "@/components/ModalForm"
 
 const data = [
   { id: 1, nome: "Ong - Ajuda Animais", texto: "ONG de proteção a animais em Itapema, desde 2010 ajudando animais de rua.", tipo: 1, chavePix: "ajuda.animais@exemplo.com" },
@@ -24,6 +25,7 @@ export default function HomeScreen() {
   const [filtro, setFiltro] = useState(0);
   const [modalInfo, setModalInfo] = useState(0);
   const [visible, setVisible] = useState(false);
+  const [visibleForm, setVisibleForm] = useState(false);
 
   const showModalFunction = (index: number) =>{
 
@@ -37,7 +39,9 @@ export default function HomeScreen() {
 
       <ModalOng visible={visible} setVisible={setVisible} modalInfo={data[modalInfo]} />
 
-      <Navbar />
+      <ModalForm visible={visibleForm} setVisible={setVisibleForm} />
+
+      <Navbar setVisibleForm={setVisibleForm} />
 
       <View style={styles.btnFilterContainer}>
         <View style={styles.btnWrapper}>

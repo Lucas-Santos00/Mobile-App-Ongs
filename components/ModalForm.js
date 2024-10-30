@@ -1,6 +1,6 @@
 import { View, Modal, Text, Button, StyleSheet } from "react-native";
 
-export default function ModalOng({ visible, setVisible, modalInfo }) {
+export default function ModalForm({ visible, setVisible }) {
 
   return (
     <View style={styles.container}>
@@ -8,12 +8,19 @@ export default function ModalOng({ visible, setVisible, modalInfo }) {
         <View style={styles.modalContainer}>
           <View style={styles.modalContent}>
 
+              <Text style={ styles.title } >Para por sua ONG na lista de ongs, envie um e-mail 
+                para <Text style={ styles.boldText }>cadastro@ongs.com.br</Text> contendo 
+                as seguintes informações:</Text>
 
-            <Text style={styles.ongTitle} >{modalInfo.nome}</Text>
+              <Text style={ styles.itemList } >Nome da sua ONG</Text>
 
-            <Text style={styles.ongText} >{modalInfo.texto}</Text>
+              <Text style={ styles.itemList } >CNPJ</Text>
 
-            <Text style={styles.ongChavePix} >Chave Pix: {modalInfo.chavePix}</Text>
+              <Text style={ styles.itemList } >Descrição</Text>
+
+              <Text style={ styles.itemList } >Localização</Text>
+
+              <Text style={ [styles.itemList, styles.lastItemList] } >ChavePix</Text>
 
             <Button title="Fechar" onPress={() => setVisible(false)} />
           </View>
@@ -42,25 +49,19 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     alignItems: 'center',
   },
-
-  ongTitle: {
-    fontSize: 22,
-    fontWeight: '600',
-    marginBottom: 18,
-    textAlign: 'center'
-  },
-
-  ongText: {
+  title: {
     fontSize: 14,
+    width: '80%',
     textAlign: 'center',
-    fontWeight: '500',
-    marginBottom: 18
+    marginBottom: 22
   },
-
-  ongChavePix: {
-    textAlign: 'center',
-    fontWeight: '300',
-    marginBottom: 28
+  itemList: {
+    marginBottom: 4
+  },
+  lastItemList: {
+    marginBottom: 12
+  },
+  boldText: {
+    fontWeight: '600'
   }
-
 });
